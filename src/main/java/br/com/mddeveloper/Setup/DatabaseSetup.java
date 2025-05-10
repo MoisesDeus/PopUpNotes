@@ -14,8 +14,8 @@ public class DatabaseSetup {
             String createNoteTable = """
                     CREATE TABLE IF NOT EXISTS Notes (
                             id INTEGER PRIMARY KEY AUTOINCREMENT,
-                            text TEXT NOT NULL
-                            date TEXT NOT NULL
+                            text TEXT NOT NULL,
+                            date TEXT NOT NULL,
                             time TEXT NOT NULL
                         );
                     """;

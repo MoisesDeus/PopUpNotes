@@ -13,6 +13,12 @@ public class NotesModel {
         this.time = time;
     }
 
+    public NotesModel(String text, String date, String time) {
+        this.text = text;
+        this.date = date;
+        this.time = time;
+    }
+
     public int getId() {
         return id;
     }
@@ -44,5 +50,11 @@ public class NotesModel {
     public void setTime(String time) {
         this.time = time;
     }
+
+    @Override
+    public String toString() {
+        return "Nota [id=" + id + ", texto='" + text + "', data=" + date + ", hora=" + time + "]";
+    }
+
 }
 

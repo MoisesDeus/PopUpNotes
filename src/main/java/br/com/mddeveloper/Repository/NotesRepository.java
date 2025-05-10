@@ -34,7 +34,7 @@ public class NotesRepository {
     public List<NotesModel> getAllNotes() {
         List<NotesModel> notesList = new ArrayList<>();
         String sql = "SELECT id, text, date, time FROM Notes";
-        try (PreparedStatement stmt = connection.prepareStatement(sql);
+        try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
                 NotesModel notes = new NotesModel(

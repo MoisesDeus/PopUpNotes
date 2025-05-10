@@ -18,16 +18,26 @@ public class NotesService {
         this.notesRepository = notesRepository;
     }
 
-    public int createNote(String text) {
-        String currentDate = toDateString(LocalDate.now());
-        String currentTime = toTimeString(LocalTime.now());
+//    public int createNote(String text) {
+//        String currentDate = toDateString(LocalDate.now());
+//        String currentTime = toTimeString(LocalTime.now());
+//
+//        NotesModel note = new NotesModel(text, currentDate, currentTime);
+//
+//        try {
+//            return notesRepository.saveNote(note);
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Erro ao Salvar a aotação", e);
+//        }
+//    }
 
-        NotesModel note = new NotesModel(0, text, currentDate, currentTime);
-
+    public boolean createNote(NotesModel note) {
         try {
-            return notesRepository.saveNote(note);
+            notesRepository.saveNote(note);
+            return true;
         } catch (SQLException e) {
-            throw new RuntimeException("Erro ao Salvar a aotação", e);
+            System.out.println("Erro ao salvar anotação: " + e.getMessage());
+            return false;
         }
     }
 
